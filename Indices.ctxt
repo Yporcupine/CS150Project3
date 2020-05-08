@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Indices
+comment0.text=\r\n\ Write\ a\ description\ of\ interface\ Indices\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=filename
+comment1.target=void\ getLines(java.lang.String)
+comment1.text=\r\n\ An\ example\ of\ a\ method\ header\ -\ replace\ this\ comment\ with\ your\ own\r\n\r\n\ @param\ \ y\ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ the\ result\ produced\ by\ sampleMethod\r\n
+comment2.params=count
+comment2.target=long\ addToIndex(int)
+comment3.params=
+comment3.target=long\ addToIndex()
+comment4.params=filename
+comment4.target=long\ printAll(java.lang.String)
+numComments=5

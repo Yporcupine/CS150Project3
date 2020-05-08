@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Entry
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Entry\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=key\ line
+comment1.target=Entry(java.lang.String,\ int)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Entry\r\n
+comment2.params=line
+comment2.target=void\ addValue(int)
+comment3.params=e
+comment3.target=int\ compareTo(Entry)
+comment3.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\r\n\ @param\ \ y\ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ the\ sum\ of\ x\ and\ y\r\n
+comment4.params=o
+comment4.target=boolean\ equals(java.lang.Object)
+comment5.params=
+comment5.target=java.lang.String\ toString()
+numComments=6
