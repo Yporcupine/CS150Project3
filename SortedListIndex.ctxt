@@ -1,14 +1,13 @@
 #BlueJ class context
 comment0.target=SortedListIndex
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ SortedListIndex\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ constructing\ an\ index\ with\ a\ sorted\ ArrayList\r\n\r\n\ @author\ Harry\ Zhu\r\n\ @version\ 5/5/2020\r\n
 comment1.params=
 comment1.target=SortedListIndex()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ SortedListIndex\r\n
-comment2.params=count
-comment2.target=long\ addToIndex(int)
-comment2.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\r\n\ @param\ \ y\ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ the\ sum\ of\ x\ and\ y\r\n
-comment3.params=
-comment3.target=long\ addToIndex()
-comment4.params=filename
-comment4.target=long\ printAll(java.lang.String)
-numComments=5
+comment2.params=filename
+comment2.target=long\ addToIndex(java.lang.String)
+comment2.text=\r\n\ adds\ all\ the\ english\ words\ from\ a\ file\ to\ the\ index\r\n\r\n\ @param\ \ filename\ \ the\ name\ of\ the\ file\ to\ be\ read\r\n\ @return\ \ \ the\ time\ executing\ the\ process\r\n
+comment3.params=filename
+comment3.target=long\ printAll(java.lang.String)
+comment3.text=\r\n\ prints\ all\ the\ words\ and\ their\ line\ numbers\ in\ the\ index\ to\ a\ file\r\n\r\n\ @param\ \ filename\ \ the\ file\ to\ be\ printed\ in\r\n\ @return\ \ \ the\ time\ executing\ the\ process\r\n
+numComments=4

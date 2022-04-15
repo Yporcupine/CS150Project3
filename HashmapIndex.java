@@ -1,12 +1,12 @@
 import java.util.*;
 import java.io.*;
 /**
-* Write a description of class HashmapIndex here.
+* constructing an index with a hashmap
 *
-* @author (your name)
-* @version (a version number or a date)
+* @author Harry Zhu
+* @version 5/5/2020
 */
-public class HashmapIndex extends IndexMap implements Indices
+public class HashmapIndex extends Indices
 {
   // instance variables - replace the example below with your own
   HashMap<String, TreeSet<Integer>> index;
@@ -19,62 +19,58 @@ public class HashmapIndex extends IndexMap implements Indices
     // initialise instance variables
     wordBank = new EnglishWords("English.txt");
     lines = new ArrayList<String>();
-    englishWords = new ArrayList<ArrayList<String>>();
 
     index = new HashMap<String, TreeSet<Integer>>();
   }
 
   /**
-  * An example of a method - replace this comment with your own
+  * adds all the english words from a file to the index
   *
-  * @param  y  a sample parameter for a method
-  * @return    the sum of x and y
+  * @param  filename  the name of the file to be read
+  * @return   the time executing the process
   */
-  public long addToIndex(int count)
-  {
-    int wordcount = 0;
-    int i = 0;
+  public long addToIndex(String filename){
+    index.clear();
+    lines.clear();
+    wordcount = 0;
     long startTime = System.currentTimeMillis();
-    while(wordcount < count && i < englishWords.size()){
-      ArrayList<String> words = englishWords.get(i);
-      if(!words.isEmpty()){
-        for (int j = 0; j < words.size(); j++) {
-          wordcount++;
-          if(index.containsKey(words.get(j))){
-            index.get(words.get(j)).add(new Integer(i));
-          }
-          else{
-            TreeSet<Integer> values = new TreeSet<Integer>();
-            values.add(new Integer(i));
-            index.put(words.get(j), values);
+    try {
+      lines.add("");
+      Scanner scanner = new Scanner(new FileReader(filename));
+      while(scanner.hasNextLine()){
+        lines.add(scanner.nextLine());
+      }
+      scanner.close();
+
+      for (int i = 0; i < lines.size(); i ++) {
+        String[] lineOfWords = lines.get(i).split("[^A-Za-z]+");
+        for (int j = 0; j < lineOfWords.length; j ++){
+          if(wordBank.hasWord(lineOfWords[j].toLowerCase())) {
+            wordcount++;
+            if(index.containsKey(lineOfWords[j].toLowerCase())){
+              index.get(lineOfWords[j].toLowerCase()).add(new Integer(i));
+            }
+            else{
+              TreeSet<Integer> values = new TreeSet<Integer>();
+              values.add(new Integer(i));
+              index.put(lineOfWords[j].toLowerCase(), values);
+            }
           }
         }
       }
-      i++;
+    }catch(Exception e) {
+      System.out.println(e);
     }
     return System.currentTimeMillis() - startTime;
   }
 
-  public long addToIndex(){
-    long startTime = System.currentTimeMillis();
-    for(int i = 0; i < englishWords.size(); i ++){
-      ArrayList<String> words = englishWords.get(i);
-      if(!words.isEmpty()){
-        for (int j = 0; j < words.size(); j++) {
-          if(index.containsKey(words.get(j))){
-            index.get(words.get(j)).add(new Integer(i));
-          }
-          else{
-            TreeSet<Integer> values = new TreeSet<Integer>();
-            values.add(new Integer(i));
-            index.put(words.get(j), values);
-          }
-        }
-      }
-    }
-    return System.currentTimeMillis() - startTime;
-  }
 
+  /**
+  * prints all the words and their line numbers in the index to a file
+  *
+  * @param  filename  the file to be printed in
+  * @return   the time executing the process
+  */
   public long printAll(String filename){
     long startTime = System.currentTimeMillis();
     try {

@@ -1,12 +1,12 @@
 import java.util.*;
 import java.io.*;
 /**
-* Write a description of class SortedListIndex here.
+* constructing an index with a sorted ArrayList
 *
-* @author (your name)
-* @version (a version number or a date)
+* @author Harry Zhu
+* @version 5/5/2020
 */
-public class SortedListIndex extends IndexMap implements Indices
+public class SortedListIndex extends Indices
 {
   // instance variables - replace the example below with your own
   ArrayList<Entry> index;
@@ -18,61 +18,56 @@ public class SortedListIndex extends IndexMap implements Indices
   {
     wordBank = new EnglishWords("English.txt");
     lines = new ArrayList<String>();
-    englishWords = new ArrayList<ArrayList<String>>();
 
     index = new ArrayList<Entry>();
   }
 
   /**
-  * An example of a method - replace this comment with your own
+  * adds all the english words from a file to the index
   *
-  * @param  y  a sample parameter for a method
-  * @return    the sum of x and y
+  * @param  filename  the name of the file to be read
+  * @return   the time executing the process
   */
-  public long addToIndex(int count){
-    int wordcount = 0;
-    int i = 0;
+  public long addToIndex(String filename){
+    index.clear();
+    lines.clear();
+    wordcount = 0;
     long startTime = System.currentTimeMillis();
-    while(wordcount < count && i < englishWords.size()){
-      ArrayList<String> words = englishWords.get(i);
-      if(!words.isEmpty()){
-        for (int j = 0; j < words.size(); j++) {
-          wordcount++;
-          Entry entry = new Entry(words.get(j), i);
-          int x = Collections.binarySearch(index, entry);
-          if(x >= 0 ){
-            index.get(x).addValue(i);
-          }
-          else{
-            index.add((-x-1),entry);
+    try {
+      lines.add("");
+      Scanner scanner = new Scanner(new FileReader(filename));
+      while(scanner.hasNextLine()){
+        lines.add(scanner.nextLine());
+      }
+      scanner.close();
+      for (int i = 0; i < lines.size(); i ++) {
+        String[] lineOfWords = lines.get(i).split("[^A-Za-z]+");
+        for (int j = 0; j < lineOfWords.length; j ++){
+          if(wordBank.hasWord(lineOfWords[j].toLowerCase())) {
+            wordcount++;
+            Entry entry = new Entry(lineOfWords[j].toLowerCase(), i);
+            int x =  Collections.binarySearch(index, entry);
+            if(x >= 0 ){
+              index.get(x).addValue(i);
+            }
+            else{
+              index.add((-x-1),entry);
+            }
           }
         }
       }
-      i++;
+    }catch(Exception e){
+      System.out.println(e);
     }
     return System.currentTimeMillis() - startTime;
   }
 
-  public long addToIndex(){
-    long startTime = System.currentTimeMillis();
-    for (int i = 0; i < englishWords.size(); i++) {
-      ArrayList<String> words = englishWords.get(i);
-      if(!words.isEmpty()){
-        for (int j = 0; j < words.size(); j++) {
-          Entry entry = new Entry(words.get(j), i);
-          int x = Collections.binarySearch(index, entry);
-          if(x >= 0 ){
-            index.get(x).addValue(i);
-          }
-          else{
-            index.add((-x-1),entry);
-          }
-        }
-      }
-    }
-    return System.currentTimeMillis() - startTime;
-  }
-
+  /**
+  * prints all the words and their line numbers in the index to a file
+  *
+  * @param  filename  the file to be printed in
+  * @return   the time executing the process
+  */
   public long printAll(String filename){
     long startTime = System.currentTimeMillis();
     try {
@@ -88,5 +83,5 @@ public class SortedListIndex extends IndexMap implements Indices
     }
     return System.currentTimeMillis() - startTime;
   }
-  
+
 }

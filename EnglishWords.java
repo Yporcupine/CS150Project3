@@ -1,10 +1,10 @@
 import java.util.*;
 import java.io.*;
 /**
-* Write a description of class EnglishWords here.
+* constructing an english dictionary to check whether a word is an english word
 *
-* @author (your name)
-* @version (a version number or a date)
+* @author Harry Zhu
+* @version 5/5/2020
 */
 public class EnglishWords
 {
@@ -29,10 +29,10 @@ public class EnglishWords
   }
 
   /**
-  * An example of a method - replace this comment with your own
+  * checks whether a word exists in the dictionary with binary search
   *
-  * @param  y  a sample parameter for a method
-  * @return    the sum of x and y
+  * @param  word  the word to be checked
+  * @return    whether the word is in the dictionary
   */
   public boolean hasWord(String word)
   {

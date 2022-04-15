@@ -1,13 +1,10 @@
 #BlueJ class context
 comment0.target=Indices
-comment0.text=\r\n\ Write\ a\ description\ of\ interface\ Indices\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ abstract\ class\ of\ all\ index\ classes\r\n\r\n\ @author\ Harry\ Zhu\r\n\ @version\ 5/5/2020\r\n
 comment1.params=filename
-comment1.target=void\ getLines(java.lang.String)
-comment1.text=\r\n\ An\ example\ of\ a\ method\ header\ -\ replace\ this\ comment\ with\ your\ own\r\n\r\n\ @param\ \ y\ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ the\ result\ produced\ by\ sampleMethod\r\n
-comment2.params=count
-comment2.target=long\ addToIndex(int)
-comment3.params=
-comment3.target=long\ addToIndex()
-comment4.params=filename
-comment4.target=long\ printAll(java.lang.String)
-numComments=5
+comment1.target=long\ addToIndex(java.lang.String)
+comment1.text=\r\n\ adds\ all\ the\ english\ words\ from\ a\ file\ to\ the\ index\r\n\r\n\ @param\ \ filename\ \ the\ name\ of\ the\ file\ to\ be\ read\r\n\ @return\ \ \ the\ time\ executing\ the\ process\r\n
+comment2.params=filename
+comment2.target=long\ printAll(java.lang.String)
+comment2.text=\r\n\ prints\ all\ the\ words\ and\ their\ line\ numbers\ in\ the\ index\ to\ a\ file\r\n\r\n\ @param\ \ filename\ \ the\ file\ to\ be\ printed\ in\r\n\ @return\ \ \ the\ time\ executing\ the\ process\r\n
+numComments=3

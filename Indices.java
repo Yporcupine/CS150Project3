@@ -1,23 +1,29 @@
-
+import java.util.*;
 /**
- * Write a description of interface Indices here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public interface Indices
+* abstract class of all index classes
+*
+* @author Harry Zhu
+* @version 5/5/2020
+*/
+public abstract class Indices
 {
-    /**
-     * An example of a method header - replace this comment with your own
-     *
-     * @param  y a sample parameter for a method
-     * @return   the result produced by sampleMethod
-     */
-    public void getLines(String filename);
+  EnglishWords wordBank;
+  ArrayList<String> lines;
+  int wordcount;
 
-    public long addToIndex(int count);
+  /**
+  * adds all the english words from a file to the index
+  *
+  * @param  filename  the name of the file to be read
+  * @return   the time executing the process
+  */
+  public abstract long addToIndex(String filename);
 
-    public long addToIndex();
-
-    public long printAll(String filename);
+  /**
+  * prints all the words and their line numbers in the index to a file
+  *
+  * @param  filename  the file to be printed in
+  * @return   the time executing the process
+  */
+  public abstract long printAll(String filename);
 }
